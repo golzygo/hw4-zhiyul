@@ -6,7 +6,7 @@
   <vendor/>
   <types>
     <typeDescription>
-      <name>foo.typesystems.Document</name>
+      <name>edu.cmu.lti.f13.hw4.hw4_zhiyul.typesystems.Document</name>
       <description/>
       <supertypeName>uima.tcas.Annotation</supertypeName>
       <features>
@@ -34,7 +34,7 @@
       </features>
     </typeDescription>
     <typeDescription>
-      <name>foo.typesystems.Token</name>
+      <name>edu.cmu.lti.f13.hw4.hw4_zhiyul.typesystems.Token</name>
       <description/>
       <supertypeName>uima.tcas.Annotation</supertypeName>
       <features>

@@ -2,20 +2,16 @@
 <analysisEngineDescription xmlns="http://uima.apache.org/resourceSpecifier">
   <frameworkImplementation>org.apache.uima.java</frameworkImplementation>
   <primitive>true</primitive>
-  <annotatorImplementationName>foo.casconsumers.RetrievalEvaluator</annotatorImplementationName>
+  <annotatorImplementationName>edu.cmu.lti.f13.hw4.hw4_zhiyul.collectionreaders.DocumentReader</annotatorImplementationName>
   <analysisEngineMetaData>
-    <name>RetrievalEvaluator</name>
+    <name>DocumentReader</name>
     <description/>
     <version>1.0</version>
     <vendor/>
-     <configurationParameters>
-      
-   </configurationParameters>
-    <configurationParameterSettings>
-      
-    </configurationParameterSettings>
+    <configurationParameters/>
+    <configurationParameterSettings/>
     <typeSystemDescription>
-      <imports>            
+      <imports>
         <import location="../typesystems/VectorSpaceTypes.xml"/>
       </imports>
     </typeSystemDescription>

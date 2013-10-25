@@ -1,4 +1,4 @@
-package foo.collectionreaders;
+package edu.cmu.lti.f13.hw4.hw4_zhiyul.collectionreaders;
 
 import java.util.ArrayList;
 
@@ -6,7 +6,7 @@ import org.apache.uima.analysis_component.JCasAnnotator_ImplBase;
 import org.apache.uima.analysis_engine.AnalysisEngineProcessException;
 import org.apache.uima.jcas.JCas;
 
-import foo.typesystems.Document;
+import edu.cmu.lti.f13.hw4.hw4_zhiyul.typesystems.Document;
 
 
 public class DocumentReader 

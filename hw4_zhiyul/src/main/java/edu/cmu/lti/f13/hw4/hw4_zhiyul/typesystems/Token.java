@@ -1,7 +1,7 @@
 
 
 /* First created by JCasGen Fri Oct 11 01:58:03 EDT 2013 */
-package foo.typesystems;
+package edu.cmu.lti.f13.hw4.hw4_zhiyul.typesystems;
 
 import org.apache.uima.jcas.JCas; 
 import org.apache.uima.jcas.JCasRegistry;
@@ -12,7 +12,7 @@ import org.apache.uima.jcas.tcas.Annotation;
 
 /** 
  * Updated by JCasGen Fri Oct 11 01:58:03 EDT 2013
- * XML source: /home/diwang/ur-workspace/hw4-zhiyul/src/main/resources/descriptors/typesystems/VectorSpaceTypes.xml
+ * XML source: /home/diwang/ur-workspace/hw4_zhiyul/src/main/resources/descriptors/typesystems/VectorSpaceTypes.xml
  * @generated */
 public class Token extends Annotation {
   /** @generated
@@ -69,14 +69,14 @@ public class Token extends Annotation {
    * @generated */
   public String getText() {
     if (Token_Type.featOkTst && ((Token_Type)jcasType).casFeat_text == null)
-      jcasType.jcas.throwFeatMissing("text", "foo.typesystems.Token");
+      jcasType.jcas.throwFeatMissing("text", "edu.cmu.lti.f13.hw4.hw4_zhiyul.typesystems.Token");
     return jcasType.ll_cas.ll_getStringValue(addr, ((Token_Type)jcasType).casFeatCode_text);}
     
   /** setter for text - sets  
    * @generated */
   public void setText(String v) {
     if (Token_Type.featOkTst && ((Token_Type)jcasType).casFeat_text == null)
-      jcasType.jcas.throwFeatMissing("text", "foo.typesystems.Token");
+      jcasType.jcas.throwFeatMissing("text", "edu.cmu.lti.f13.hw4.hw4_zhiyul.typesystems.Token");
     jcasType.ll_cas.ll_setStringValue(addr, ((Token_Type)jcasType).casFeatCode_text, v);}    
    
     
@@ -87,14 +87,14 @@ public class Token extends Annotation {
    * @generated */
   public int getFrequency() {
     if (Token_Type.featOkTst && ((Token_Type)jcasType).casFeat_frequency == null)
-      jcasType.jcas.throwFeatMissing("frequency", "foo.typesystems.Token");
+      jcasType.jcas.throwFeatMissing("frequency", "edu.cmu.lti.f13.hw4.hw4_zhiyul.typesystems.Token");
     return jcasType.ll_cas.ll_getIntValue(addr, ((Token_Type)jcasType).casFeatCode_frequency);}
     
   /** setter for frequency - sets  
    * @generated */
   public void setFrequency(int v) {
     if (Token_Type.featOkTst && ((Token_Type)jcasType).casFeat_frequency == null)
-      jcasType.jcas.throwFeatMissing("frequency", "foo.typesystems.Token");
+      jcasType.jcas.throwFeatMissing("frequency", "edu.cmu.lti.f13.hw4.hw4_zhiyul.typesystems.Token");
     jcasType.ll_cas.ll_setIntValue(addr, ((Token_Type)jcasType).casFeatCode_frequency, v);}    
   }
 

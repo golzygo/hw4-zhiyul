@@ -1,4 +1,4 @@
-package foo.annotators;
+package edu.cmu.lti.f13.hw4.hw4_zhiyul.annotators;
 
 import org.apache.uima.analysis_component.JCasAnnotator_ImplBase;
 import org.apache.uima.analysis_engine.AnalysisEngineProcessException;
@@ -8,7 +8,7 @@ import org.apache.uima.jcas.cas.IntegerArray;
 import org.apache.uima.jcas.cas.StringArray;
 import org.apache.uima.jcas.tcas.Annotation;
 
-import foo.typesystems.Document;
+import edu.cmu.lti.f13.hw4.hw4_zhiyul.typesystems.Document;
 
 public class DocumentVectorAnnotator extends JCasAnnotator_ImplBase {
 

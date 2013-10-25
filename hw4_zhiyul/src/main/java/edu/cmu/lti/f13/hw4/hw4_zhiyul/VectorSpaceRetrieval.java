@@ -22,7 +22,7 @@
  * 3. (optional) Improve the efficiency of the program and reduce the runtime of the retrieval system
  * 
  */
-package foo;
+package edu.cmu.lti.f13.hw4.hw4_zhiyul;
 
 import java.io.BufferedReader;
 import java.io.FileReader;

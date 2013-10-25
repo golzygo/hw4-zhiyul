@@ -2,7 +2,7 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>edu.cmu.lti.11791.f13.hw4</groupId>
-	<artifactId>hw4-zhiyul</artifactId>
+	<artifactId>hw4_zhiyul</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 
 	<repositories>
@@ -98,15 +98,11 @@
 							<goal>perform</goal>
 						</goals>
 						<configuration>
-							<pomFileName>hw4-zhiyul/pom.xml</pomFileName>
+							<pomFileName>hw4_zhiyul/pom.xml</pomFileName>
 						</configuration>
 					</execution>
 				</executions>
 			</plugin>
 		</plugins>
 	</build>
-	<scm>
-		<connection>scm:git:git@github.com:golzygo/hw4-zhiyul.git</connection>
-		<developerConnection>scm:git:git@github.com:golzygo/hw4-zhiyul.git</developerConnection>
-	</scm>
 </project>
