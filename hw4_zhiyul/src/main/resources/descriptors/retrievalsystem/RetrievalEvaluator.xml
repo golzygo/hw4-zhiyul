@@ -8,15 +8,11 @@
     <description/>
     <version>1.0</version>
     <vendor/>
-     <configurationParameters>
-      
-   </configurationParameters>
-    <configurationParameterSettings>
-      
-    </configurationParameterSettings>
+    <configurationParameters/>
+    <configurationParameterSettings/>
     <typeSystemDescription>
-      <imports>            
-        <import location="../typesystems/VectorSpaceTypes.xml"/>
+      <imports>
+        <import location="/Users/golzygo/git/hw4-zhiyul/hw4_zhiyul/src/main/resources/descriptors/typesystems/VectorSpaceTypes.xml"/>
       </imports>
     </typeSystemDescription>
     <typePriorities/>

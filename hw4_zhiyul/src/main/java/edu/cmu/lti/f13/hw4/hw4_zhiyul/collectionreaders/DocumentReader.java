@@ -40,7 +40,7 @@ extends JCasAnnotator_ImplBase  {
 		doc.addToIndexes();
 		
 		//Adding populated FeatureStructure to CAS
-		jcas.addFsToIndexes(doc);
+//		jcas.addFsToIndexes(doc);
 	}
 
 

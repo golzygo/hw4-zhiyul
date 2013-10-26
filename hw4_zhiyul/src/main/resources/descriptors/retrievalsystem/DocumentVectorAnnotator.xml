@@ -2,7 +2,7 @@
 <analysisEngineDescription xmlns="http://uima.apache.org/resourceSpecifier">
   <frameworkImplementation>org.apache.uima.java</frameworkImplementation>
   <primitive>true</primitive>
-  <annotatorImplementationName>edu.cmu.lti.f13.hw4.hw4_zhiyul.annotators.DocumentVectorAnnotator</annotatorImplementationName>  
+  <annotatorImplementationName>edu.cmu.lti.f13.hw4.hw4_zhiyul.annotators.DocumentVectorAnnotator</annotatorImplementationName>
   <analysisEngineMetaData>
     <name>DocumentVector</name>
     <description/>
@@ -12,7 +12,7 @@
     <configurationParameterSettings/>
     <typeSystemDescription>
       <imports>
-		<import location="../typesystems/VectorSpaceTypes.xml"/>
+        <import location="/Users/golzygo/git/hw4-zhiyul/hw4_zhiyul/src/main/resources/descriptors/typesystems/VectorSpaceTypes.xml"/>
       </imports>
     </typeSystemDescription>
     <typePriorities/>

@@ -47,29 +47,30 @@ public class DocumentVectorAnnotator extends JCasAnnotator_ImplBase {
 	      term=term.substring(0, term.length()-1);
 	    } // discard the punctuation(s)
 
-	    // add the term to the Token annotation
-	    Token annotation=new Token(jcas);
-	    annotation.setBegin(termPosition);
-	    annotation.setEnd(termPosition+term.length());
-	    termPosition+=(term.length()+1); // assume there is only one space between tokens
-	    // not accurate, better to use a nlp tool, but stanford-nlp has a bug on my computer
-	    annotation.setText(term);
-	    annotation.setFrequency(1);
-
+	    // test if the term is already added
 	    boolean tokenExist=false;
 	    for(int i=0;i<termFreqList.size();i++){
 	      // not very efficient but corpus is small, and this is easy to implement.
-	      if(termFreqList.get(i).equals(annotation)){
+//	      if(termFreqList.get(i).equals(annotation)){
+//	        termFreqList.get(i).setFrequency(termFreqList.get(i).getFrequency()+1);
+//	        tokenExist=true;
+//	        break;
+//	      }
+	      if (termFreqList.get(i).getText().equals(term)) {
 	        termFreqList.get(i).setFrequency(termFreqList.get(i).getFrequency()+1);
 	        tokenExist=true;
-	        break;
+          break;
 	      }
-	      //      if (termFreqList.get(i).getText().equals(term)) {
-	      //        termFreqList.get(i).setFrequency(termFreqList.get(i).getFrequency()+1);
-	      //      }
 	    }
 	    // add this token to the list if it's not added before
 	    if(!tokenExist){
+	      Token annotation=new Token(jcas);
+	      annotation.setBegin(termPosition);
+	      annotation.setEnd(termPosition+term.length());
+	      termPosition+=(term.length()+1); // assume there is only one space between tokens
+	      // not accurate, better to use a nlp tool, but stanford-nlp has a bug on my computer
+	      annotation.setText(term);
+	      annotation.setFrequency(1);
 	      termFreqList.add(annotation);
 	    }
 
