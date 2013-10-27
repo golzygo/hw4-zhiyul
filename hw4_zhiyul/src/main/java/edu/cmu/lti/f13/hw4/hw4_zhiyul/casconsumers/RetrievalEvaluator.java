@@ -1,5 +1,7 @@
 package edu.cmu.lti.f13.hw4.hw4_zhiyul.casconsumers;
 
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.lang.annotation.Annotation;
 import java.util.ArrayList;
@@ -9,6 +11,7 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Map;
+import java.util.Scanner;
 import java.util.Set;
 
 import org.apache.uima.cas.CAS;
@@ -24,7 +27,6 @@ import org.apache.uima.util.ProcessTrace;
 
 import edu.cmu.lti.f13.hw4.hw4_zhiyul.typesystems.Document;
 import edu.cmu.lti.f13.hw4.hw4_zhiyul.typesystems.Token;
-import edu.cmu.lti.f13.hw4.hw4_zhiyul.typesystems.DocScore;
 import edu.cmu.lti.f13.hw4.hw4_zhiyul.utils.Utils;
 
 
@@ -39,8 +41,14 @@ public class RetrievalEvaluator extends CasConsumer_ImplBase {
 	/** list of term frequency lists **/
 	public ArrayList<Map<String, Integer>> termMapList;
 	
+	/** save the documents' text for output **/
 	public ArrayList<String> docTexts;
-	
+
+  // save the stopwords list
+  Set<String> stopwordsSet;
+  
+  // stemmer for terms
+  Stemmer stemmer=new Stemmer();
 	
 
 //	Map<String, Integer> termFreqList;
@@ -54,7 +62,30 @@ public class RetrievalEvaluator extends CasConsumer_ImplBase {
 		termMapList=new ArrayList<Map<String,Integer>>();
 		
 		docTexts=new ArrayList<String>();
+		
+		stopwordsSet=new HashSet<String>();
 
+		// process stopword set
+		Scanner scan=null;
+    try {
+      scan = new Scanner(new File("src/main/resources/stopwords_lucene.txt"));
+    } catch (FileNotFoundException e) {
+      // TODO Auto-generated catch block
+      e.printStackTrace();
+    }
+    String line=null;
+    // skip the first three lines
+    for (int i = 0; i < 3; i++) {
+      line=scan.nextLine();
+    }
+    
+    do {
+      line=scan.nextLine();
+//      System.out.println(line+"!");
+      if (!stopwordsSet.contains(line)) {
+        stopwordsSet.add(line);
+      }
+    } while (scan.hasNext());
 	}
 
 	/**
@@ -85,7 +116,17 @@ public class RetrievalEvaluator extends CasConsumer_ImplBase {
 			ArrayList<Token> tokenList=Utils.fromFSListToCollection(fsTokenList, Token.class);
 			Map<String, Integer> termFreqMap=new HashMap<String, Integer>();
 			for(Token token:tokenList){
-			  termFreqMap.put(token.getText(), token.getFrequency());
+			  String term=token.getText();
+			  // stem the term
+        stemmer.add(term.toCharArray(), term.length());
+        stemmer.stem();
+        term=stemmer.toString();
+        
+//			  termFreqMap.put(term, token.getFrequency());
+        // only process terms that are not in the stopwords list
+        if (!stopwordsSet.contains(token.getText())) {
+          termFreqMap.put(term, token.getFrequency());
+        }
 			}
 
 			qIdList.add(doc.getQueryID());
@@ -132,14 +173,6 @@ public class RetrievalEvaluator extends CasConsumer_ImplBase {
         if (docScores.size()>0) {
           // first caclulate reciprocal rank for the previous query
           Collections.sort(docScores, Collections.reverseOrder());
-//          Collections.sort(docScores, new Comparator<DocScore>(){
-//            public int compare( DocScore ds1, DocScore ds2 )
-//            {
-//                return ds1.getScore()<ds2.getScore()?1:
-//                  ds1.getScore()>ds2.getScore()?-1:
-//                    0;
-//            }
-//        } );
           
           for (int i = 0; i < docScores.size(); i++) {
             if (relScore==docScores.get(i)) {
@@ -183,8 +216,8 @@ public class RetrievalEvaluator extends CasConsumer_ImplBase {
       }
     }
 		// TODO :: compute the cosine similarity measure
-//		System.out.println(qIdList);
-		
+    
+    
 		
 		// TODO :: compute the rank of retrieved sentences
 		
@@ -233,7 +266,7 @@ public class RetrievalEvaluator extends CasConsumer_ImplBase {
 		double sum=0;
 		// TODO :: compute Mean Reciprocal Rank (MRR) of the text collection
 		for(int rank:ranks){
-		  sum+=rank;
+		  sum+=1.0/rank;
 		}
 		metric_mrr=sum/ranks.size();
 		return metric_mrr;

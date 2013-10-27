@@ -7,8 +7,6 @@ import org.apache.uima.analysis_engine.AnalysisEngineProcessException;
 import org.apache.uima.cas.FSIterator;
 import org.apache.uima.jcas.JCas;
 import org.apache.uima.jcas.cas.FSList;
-import org.apache.uima.jcas.cas.IntegerArray;
-import org.apache.uima.jcas.cas.StringArray;
 import org.apache.uima.jcas.tcas.Annotation;
 
 import edu.cmu.lti.f13.hw4.hw4_zhiyul.typesystems.Document;
@@ -17,6 +15,7 @@ import edu.cmu.lti.f13.hw4.hw4_zhiyul.utils.Utils;
 
 public class DocumentVectorAnnotator extends JCasAnnotator_ImplBase {
 
+  
 	@Override
 	public void process(JCas jcas) throws AnalysisEngineProcessException {
 
@@ -43,6 +42,7 @@ public class DocumentVectorAnnotator extends JCasAnnotator_ImplBase {
 	  String terms[]=docText.split(" ");
 	  int termPosition=doc.getBegin(); // save the current term's position
 	  for (String term : terms){
+	    term=term.toLowerCase();
 	    while(!Character.isLetterOrDigit(term.charAt(term.length()-1))){
 	      term=term.substring(0, term.length()-1);
 	    } // discard the punctuation(s)
@@ -51,11 +51,6 @@ public class DocumentVectorAnnotator extends JCasAnnotator_ImplBase {
 	    boolean tokenExist=false;
 	    for(int i=0;i<termFreqList.size();i++){
 	      // not very efficient but corpus is small, and this is easy to implement.
-//	      if(termFreqList.get(i).equals(annotation)){
-//	        termFreqList.get(i).setFrequency(termFreqList.get(i).getFrequency()+1);
-//	        tokenExist=true;
-//	        break;
-//	      }
 	      if (termFreqList.get(i).getText().equals(term)) {
 	        termFreqList.get(i).setFrequency(termFreqList.get(i).getFrequency()+1);
 	        tokenExist=true;
