@@ -105,4 +105,8 @@
 			</plugin>
 		</plugins>
 	</build>
+	<scm>
+		<connection>scm:git:git@github.com:golzygo/hw4-zhiyul.git</connection>
+		<developerConnection>scm:git:git@github.com:golzygo/hw4-zhiyul.git</developerConnection>
+	</scm>
 </project>
