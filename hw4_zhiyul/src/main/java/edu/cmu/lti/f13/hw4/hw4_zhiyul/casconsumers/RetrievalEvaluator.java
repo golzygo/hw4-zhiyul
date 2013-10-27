@@ -6,10 +6,8 @@ import java.io.IOException;
 import java.lang.annotation.Annotation;
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Comparator;
 import java.util.HashMap;
 import java.util.HashSet;
-import java.util.Iterator;
 import java.util.Map;
 import java.util.Scanner;
 import java.util.Set;
@@ -17,7 +15,6 @@ import java.util.Set;
 import org.apache.uima.cas.CAS;
 import org.apache.uima.cas.CASException;
 import org.apache.uima.cas.FSIterator;
-import org.apache.uima.cas.FSIndex;
 import org.apache.uima.collection.CasConsumer_ImplBase;
 import org.apache.uima.jcas.JCas;
 import org.apache.uima.jcas.cas.FSList;
@@ -49,9 +46,7 @@ public class RetrievalEvaluator extends CasConsumer_ImplBase {
   
   // stemmer for terms
   Stemmer stemmer=new Stemmer();
-	
 
-//	Map<String, Integer> termFreqList;
 		
 	public void initialize() throws ResourceInitializationException {
 
